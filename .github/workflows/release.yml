@@ -90,7 +90,7 @@ jobs:
       RC: ${{ inputs.rc }}
     steps:
       # An earlier job on an own runner may have left this workspace sparse (another product's job, a sparse checkout).
-      - uses: ElderlyGate/.github/.github/actions/unsparse@main
+      - uses: nayweelabs/.github/.github/actions/unsparse@main
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
@@ -109,7 +109,7 @@ jobs:
           fi
 
       - id: next
-        uses: ElderlyGate/.github/.github/actions/next-version@main
+        uses: nayweelabs/.github/.github/actions/next-version@main
         with:
           rc: ${{ inputs.rc }}
 
@@ -234,12 +234,12 @@ jobs:
     steps:
       # The released commit, as its tag names it.
       # An earlier job on an own runner may have left this workspace sparse (another product's job, a sparse checkout).
-      - uses: ElderlyGate/.github/.github/actions/unsparse@main
+      - uses: nayweelabs/.github/.github/actions/unsparse@main
       - uses: actions/checkout@v5
         with:
           ref: refs/tags/${{ needs.release.outputs.version }}
       - id: image
-        uses: ElderlyGate/.github/.github/actions/image@main
+        uses: nayweelabs/.github/.github/actions/image@main
         with:
           tag: ${{ needs.release.outputs.version }}
           name: ${{ inputs.image-name }}

@@ -1,4 +1,4 @@
-# ElderlyGate/.github
+# nayweelabs/.github
 
 The org's shared workflows: the release pipeline, and the rule-date check (G-CON-8). A merge to `main` releases by itself (V-7): nobody tags by hand.
 
@@ -84,8 +84,8 @@ Until a product has dropped its file, set `version-file`. Then the pull request 
 
 ## What the owner sets up
 
-- Create the private repository `ElderlyGate/.github` and push this one.
-- In this repository: Settings, Actions, General, Access: "Accessible from repositories in the 'ElderlyGate' organization". Without it, other repositories cannot call the workflow or its action.
+- Create the private repository `nayweelabs/.github` and push this one.
+- In this repository: Settings, Actions, General, Access: "Accessible from repositories in the 'nayweelabs' organization". Without it, other repositories cannot call the workflow or its action.
 - In each product, or for the org: Settings, Actions, General, Workflow permissions. The workflow asks for `contents: write` itself, so "Read repository contents" as default is fine, but the org must not forbid write.
 - The tag ruleset must let GitHub Actions create `v*` tags. It already protects them from update and deletion.
 

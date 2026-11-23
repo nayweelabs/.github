@@ -24,7 +24,7 @@ jobs:
           fetch-depth: 0
       # A `uses:` cannot be an expression, so this cannot follow the ref the caller pins;
       # the template calls this workflow @main, and the action follows main with it.
-      - uses: ElderlyGate/.github/.github/actions/rule-dates@main
+      - uses: nayweelabs/.github/.github/actions/rule-dates@main
         with:
           files: ${{ inputs.files }}
           # A pull request compares with its base; a push to main with the commit before it.
