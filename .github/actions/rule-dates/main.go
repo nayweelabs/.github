@@ -29,7 +29,7 @@ Flags:
   -rev <rev>           backfill: read history up to this revision (default: HEAD)
   -write               backfill: write the dates into the files
 
-More: https://github.com/ElderlyGate/.github
+More: https://github.com/nayweelabs/.github
 `
 
 func main() {
