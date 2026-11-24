@@ -73,6 +73,7 @@ jobs:
     # Tags live on main only (V-1); "[skip release]" in the merge commit holds the release back.
     if: github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '[skip release]')
     runs-on: ${{ (inputs.runner || vars.RELEASE_RUNNER) == 'local' && fromJSON('["self-hosted","eg-linux"]') || 'ubuntu-latest' }}
+    timeout-minutes: 60
     permissions:
       contents: write
     # Merges release one after another, so two runs never pick the same version.
@@ -228,6 +229,7 @@ jobs:
     # From inputs and variables, as the release job's: a name read from needs showed as its raw expression when the job was skipped.
     name: ${{ (inputs.runner || vars.RELEASE_RUNNER) == 'local' && 'local · image' || 'github · image' }}
     runs-on: ${{ fromJSON(needs.release.outputs.runs-on) }}
+    timeout-minutes: 60
     # No permissions here: asking for packages: write would fail every caller that does not grant it, image or not. The caller's job grants it.
     outputs:
       name: ${{ steps.image.outputs.name }}

@@ -18,6 +18,7 @@ jobs:
     # A public repo: GitHub's machines cost it nothing, and an own runner would run any fork's PR on the owner's Mac.
     name: github · linux
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
       - run: bash .github/scripts/next-version_test.sh
@@ -27,6 +28,7 @@ jobs:
   unsparse:
     name: github · unsparse
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
@@ -42,6 +44,7 @@ jobs:
   image:
     name: github · image
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
       # This branch's action, not main's, so a change to it is tested before it merges.
@@ -57,6 +60,7 @@ jobs:
 
   rule-dates:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     defaults:
       run:
         working-directory: .github/actions/rule-dates
