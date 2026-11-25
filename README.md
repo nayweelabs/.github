@@ -116,3 +116,11 @@ A rule changed on the day it was added shows only that day (`OmitSameDayChanged`
 `.github/workflows/rule-dates.yml` runs on every pull request and every push to `main`, comparing with the pull request's base or the commit before the push. It fails a rule without a date, a new rule dated before the base's last commit (not when the file had no rule IDs at the base: that one-time backfill keeps the real dates), a text change whose changed date is not later than the one before (or today), a changed date moved while the text stayed, a moved added date, a rule dropped instead of marked `Removed.`, a reused removed ID, and a list item that opens with a bold rule ID but is not written `- **ID** <date> · <text>` at the start of a line. Any change to a rule's words is a text change, a re-wrap or an added space inside a line too; only trailing spaces and line endings are ignored. To adopt it, copy `templates/rule-dates.yml` into the repository; the org constitution passes `files: tech-stack.md`.
 
 The checker is a small Go program in `.github/actions/rule-dates`; `go run . help` there shows its commands. `backfill` dates every rule once from git: added is the first commit on `main` holding the ID, changed is the last commit that changed its text. It shows the lines it would change; `-write` writes them. Test it with `go test ./...` in that folder.
+
+## License
+
+Elastic License 2.0 (ELv2), see [LICENSE](LICENSE).
+You may use, copy and change this code. You may not offer it as a hosted or managed service,
+and you may not remove or get around its license keys.
+
+Versions released before this license was added carried no license: all rights reserved.
